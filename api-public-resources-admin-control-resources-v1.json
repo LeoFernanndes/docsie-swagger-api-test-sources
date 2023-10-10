@@ -1,0 +1,1133 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Resources to feed other PPaaS services",
+    "description": "common resources like currencies, countries, timezones, merchant category codes",
+    "version": "1.0.6",
+    "x-ppaas-status": "ACTIVE",
+    "x-ppaas-type": "api",
+    "x-ppaas-scope": "public",
+    "x-ppaas-domain": "resources",
+    "x-ppaas-id": "api-public-resources-admin-control-resources-v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.demo.ppaas.tech/resources/v1",
+      "description": "Demo Environment"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Common data",
+      "description": "APIs for common data"
+    }
+  ],
+  "paths": {
+    "/city": {
+      "get": {
+        "tags": [
+          "Common data"
+        ],
+        "summary": "get the City information",
+        "description": "get the data information to display corresponding to the city provided",
+        "operationId": "getCityMasterData",
+        "parameters": [
+          {
+            "name": "data_code",
+            "description": "code",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/City"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NotFound",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/country": {
+      "get": {
+        "tags": [
+          "Common data"
+        ],
+        "summary": "get the Country information",
+        "description": "get the data information to display corresponding to the country provided",
+        "operationId": "getCountryMasterData",
+        "parameters": [
+          {
+            "name": "data_code",
+            "description": "country code",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Country"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NotFound",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/state": {
+      "get": {
+        "tags": [
+          "Common data"
+        ],
+        "summary": "get the State information",
+        "description": "get the data information to display corresponding to the state provided",
+        "operationId": "getStateMasterData",
+        "parameters": [
+          {
+            "name": "data_code",
+            "description": "code",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/State"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NotFound",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/region": {
+      "get": {
+        "tags": [
+          "Common data"
+        ],
+        "summary": "get the Region information",
+        "description": "get the data information to display corresponding to the region provided",
+        "operationId": "getRegionMasterData",
+        "parameters": [
+          {
+            "name": "data_code",
+            "description": "region code",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Region"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NotFound",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/timezone": {
+      "get": {
+        "tags": [
+          "Common data"
+        ],
+        "summary": "get the Timezone information",
+        "description": "get the data information to display corresponding to the timezone provided",
+        "operationId": "getTimezoneMasterData",
+        "parameters": [
+          {
+            "name": "data_code",
+            "description": "code",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Timezone"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NotFound",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/currency": {
+      "get": {
+        "tags": [
+          "Common data"
+        ],
+        "summary": "get the Currency information",
+        "description": "get the data information to display corresponding to the currency provided",
+        "operationId": "getCurrencyMasterData",
+        "parameters": [
+          {
+            "name": "data_code",
+            "description": "code",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Currency"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NotFound",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/language": {
+      "get": {
+        "tags": [
+          "Common data"
+        ],
+        "summary": "get the Language information",
+        "description": "get the data information to display corresponding to the language provided",
+        "operationId": "getLanguageMasterData",
+        "parameters": [
+          {
+            "name": "data_code",
+            "description": "code",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Language"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NotFound",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mcc": {
+      "get": {
+        "tags": [
+          "Common data"
+        ],
+        "summary": "get the Merchant Category Code",
+        "description": "get the data information to display corresponding to the mcc provided",
+        "operationId": "getMccMasterData",
+        "parameters": [
+          {
+            "name": "data_code",
+            "description": "code",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Mcc"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NotFound",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/datetime-format": {
+      "get": {
+        "tags": [
+          "Common data"
+        ],
+        "summary": "get the Date Time Format",
+        "description": "get the data information to display corresponding to the datetime format",
+        "operationId": "getDatetimeFormatMasterData",
+        "parameters": [
+          {
+            "name": "data_code",
+            "description": "code",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DatetimeFormat"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NotFound",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/device-model": {
+      "get": {
+        "tags": [
+          "Common data"
+        ],
+        "summary": "get the device models",
+        "description": "get the data information to display device models",
+        "parameters": [
+          {
+            "name": "data_code",
+            "description": "device model",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "family_name",
+            "description": "Family name of device",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeviceModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NotFound",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel500"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "City": {
+        "type": "object",
+        "properties": {
+          "citycode": {
+            "type": "string",
+            "example": "DEL"
+          },
+          "cityname": {
+            "type": "string",
+            "example": "Delhi"
+          }
+        }
+      },
+      "Country": {
+        "type": "object",
+        "properties": {
+          "countrycode": {
+            "type": "string",
+            "example": "IND"
+          },
+          "countryname": {
+            "type": "string",
+            "example": "India"
+          },
+          "regioncode": {
+            "type": "string",
+            "example": "APAC"
+          }
+        }
+      },
+      "DeviceModel": {
+        "type": "object",
+        "properties": {
+          "modelId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "f66edded-d303-46a0-be9d-dda9e47cd0ba"
+          },
+          "modelName": {
+            "type": "string",
+            "example": "DX8000"
+          },
+          "manufacturer": {
+            "type": "string",
+            "example": "Ingenico"
+          },
+          "description": {
+            "type": "string",
+            "example": "DX8000 by Ingenico"
+          },
+          "familyName": {
+            "type": "string",
+            "example": "AXIUM"
+          }
+        }
+      },
+      "Region": {
+        "type": "object",
+        "properties": {
+          "regioncode": {
+            "type": "string",
+            "example": "APAC"
+          },
+          "regionname": {
+            "type": "string",
+            "example": "APAC"
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          }
+        }
+      },
+      "Currency": {
+        "type": "object",
+        "properties": {
+          "currencycode": {
+            "type": "string",
+            "example": "INR"
+          },
+          "currencyname": {
+            "type": "string",
+            "example": " Indian rupee"
+          },
+          "countrycode": {
+            "type": "string",
+            "example": "IND"
+          }
+        }
+      },
+      "Language": {
+        "type": "object",
+        "properties": {
+          "languagecode": {
+            "type": "string",
+            "example": "ENG"
+          },
+          "languagename": {
+            "type": "string",
+            "example": "English"
+          },
+          "countrycode": {
+            "type": "string",
+            "example": "IND"
+          }
+        }
+      },
+      "State": {
+        "type": "object",
+        "properties": {
+          "statecode": {
+            "type": "string",
+            "example": "NDL"
+          },
+          "statename": {
+            "type": "string",
+            "example": "New Delhi"
+          },
+          "countrycode": {
+            "type": "string",
+            "example": "IND"
+          }
+        }
+      },
+      "Timezone": {
+        "type": "object",
+        "properties": {
+          "timezonecode": {
+            "type": "string",
+            "example": "ITZ"
+          },
+          "timezonedetails": {
+            "type": "string",
+            "example": "India is GMT/UTC + 5:30h during Standard"
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          }
+        }
+      },
+      "Mcc": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "example": "ITZ"
+          },
+          "MCC": {
+            "pattern": "[0-9]{4}",
+            "type": "string",
+            "description": "MCC international code, follow ISO18245"
+          },
+          "Description": {
+            "type": "string",
+            "example": "Hardware Stores"
+          }
+        }
+      },
+      "DatetimeFormat": {
+        "type": "object",
+        "properties": {
+          "FormatName": {
+            "type": "string",
+            "description": "iso"
+          },
+          "FormatValue": {
+            "type": "string",
+            "example": "YYYY-MM-DD T HH:mm:ssZ"
+          }
+        }
+      },
+      "ErrorModel": {
+        "required": [
+          "details",
+          "title",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "this code is used to identify the error type, usefull for testing",
+            "example": "SERVICE-0001"
+          },
+          "title": {
+            "type": "string",
+            "description": "this code is used to identify the error type, usefull for testing",
+            "example": "Your request parameters did not validate."
+          },
+          "details": {
+            "type": "string",
+            "description": "this field decribe the error in a way that is understandable to a human",
+            "example": "The service profile does not match the JSON schema"
+          },
+          "instance": {
+            "type": "string",
+            "description": "used to specify the resource",
+            "example": "/config/v1/service-profile/123e4567-e89b-12d3-a456-426614174000"
+          }
+        }
+      },
+      "ErrorModel500": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ErrorModel_1"
+          },
+          {
+            "example": {
+              "type": "https://static.ppaas.com/api/errors/too-many-requests",
+              "title": "Too Many Requests",
+              "details": "The server is receiving too many requests. Retry later."
+            }
+          }
+        ]
+      },
+      "ErrorModel_1": {
+        "required": [
+          "details",
+          "title",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "this path is used to identify the error, usefull for testing",
+            "format": "uri",
+            "example": "https://static.ppaas.com/api/errors/type-of-the-error"
+          },
+          "title": {
+            "type": "string",
+            "description": "this is used to resume the error",
+            "example": "Error in the format of the request payload."
+          },
+          "details": {
+            "type": "string",
+            "description": "this field decribe the error in a way that is understandable to a human",
+            "example": "The service profile does not match the JSON schema"
+          },
+          "instance": {
+            "type": "string",
+            "description": "if specified, used to specify the resource involved in the error",
+            "format": "uri",
+            "example": "/config/v1/service-profiles/123e4567-e89b-12d3-a456-426614174000"
+          },
+          "status": {
+            "type": "integer",
+            "description": "if specified, must be the same as the HTTP status code",
+            "example": 400
+          },
+          "correlationId": {
+            "type": "string",
+            "description": "this is the unique identifier of a request in our system, the same value as the X-Correlation-ID HTTP header, please send this information to the support for further investigation",
+            "example": "456e4567-e89b-12d3-a456-426614174893"
+          },
+          "errors": {
+            "type": "array",
+            "description": "an optional list of detailed sub-errors",
+            "items": {
+              "$ref": "#/components/schemas/ErrorModel_1_errors"
+            }
+          }
+        },
+        "description": "Error message as defined in RFC 7807",
+        "externalDocs": {
+          "description": "RFC 7807",
+          "url": "https://tools.ietf.org/html/rfc7807"
+        }
+      },
+      "ErrorModel_1_errors": {
+        "required": [
+          "details",
+          "title",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "this path is used to identify the error, usefull for testing",
+            "format": "uri",
+            "example": "https://static.ppaas.com/api/errors/missing-parameter"
+          },
+          "title": {
+            "type": "string",
+            "description": "this is used to resume the error",
+            "example": "Missing Parameter"
+          },
+          "details": {
+            "type": "string",
+            "description": "this field decribe the error in a way that is understandable to a human",
+            "example": "The parameter xyz is missing."
+          },
+          "instance": {
+            "type": "string",
+            "description": "used to specify the resource",
+            "format": "uri",
+            "example": "/config/v1/service-profiles/123e4567-e89b-12d3-a456-426614174000"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
